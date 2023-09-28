@@ -33,11 +33,11 @@ class WidgetbookApp extends StatelessWidget {
           name: 'Widgets',
           children: [
             WidgetbookComponent(
-              name: 'CustomContainer',
+              name: 'Star',
               useCases: [
                 WidgetbookUseCase(
-                  name: 'Default Style',
-                  builder: (context) => greenContainerUseCase(context),
+                  name: 'star Style',
+                  builder: (context) => StarWithCollar(),
                 ),
               ],
             ),
@@ -180,5 +180,46 @@ class WidgetbookApp extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class StarWithCollar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: CustomPaint(
+        size: Size(100, 100), // Adjust the size as needed
+        painter: StarWithCollarPainter(),
+      ),
+    );
+  }
+}
+
+class StarWithCollarPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = Colors.white // White collar color
+      ..style = PaintingStyle.fill;
+
+    final path = Path()
+      ..lineTo(size.width * 0.5, 0)
+      ..lineTo(size.width * 0.6, size.height * 0.4)
+      ..lineTo(size.width, size.height * 0.5)
+      ..lineTo(size.width * 0.7, size.height * 0.7)
+      ..lineTo(size.width * 0.75, size.height)
+      ..lineTo(size.width * 0.5, size.height * 0.85)
+      ..lineTo(size.width * 0.25, size.height)
+      ..lineTo(size.width * 0.3, size.height * 0.7)
+      ..lineTo(0, size.height * 0.5)
+      ..lineTo(size.width * 0.4, size.height * 0.4)
+      ..close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return false;
   }
 }
