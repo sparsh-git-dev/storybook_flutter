@@ -5,6 +5,14 @@
 /// [Ref link]: https://docs.widgetbook.io/getting-started/complete-example
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:full_example/widgets/check_box.dart';
+import 'package:full_example/widgets/color_picker.dart';
+import 'package:full_example/widgets/drop_down_widget.dart';
+import 'package:full_example/widgets/elevated_button_widget.dart';
+import 'package:full_example/widgets/elevated_button_widget_cancel.dart';
+import 'package:full_example/widgets/first_name_text_field_widget.dart';
+import 'package:full_example/widgets/last_name_text_field_widget.dart';
+import 'package:full_example/widgets/radio_button.dart';
 import 'package:widgetbook/widgetbook.dart' hide AlignmentAddon;
 
 import 'components/container.dart';
@@ -33,31 +41,66 @@ class WidgetbookApp extends StatelessWidget {
           name: 'Widgets',
           children: [
             WidgetbookComponent(
-              name: 'Star',
+              name: 'Button',
               useCases: [
                 WidgetbookUseCase(
-                  name: 'star Style',
-                  builder: (context) => StarWithCollar(),
+                  name: 'Cancel Button',
+                  builder: (context) => ElevatedButtonCancelWidget(),
+                ),
+                WidgetbookUseCase(
+                  name: 'Save Button',
+                  builder: (context) => ElevatedButtonSaveWidget(),
                 ),
               ],
             ),
             WidgetbookComponent(
-              name: 'CustomCard',
+              name: 'TextForm Fields',
               useCases: [
                 WidgetbookUseCase(
-                  name: 'Default Style',
-                  builder: (context) => const CustomCard(
-                    child: Text('This is a custom card'),
-                  ),
+                  name: 'First Name Text Field',
+                  builder: (context) => const FirstNameTextFieldWidget(),
                 ),
                 WidgetbookUseCase(
-                  name: 'With Custom Background Color',
-                  builder: (context) => CustomCard(
-                    backgroundColor: Colors.green.shade100,
-                    child: const Text(
-                      'This is a custom card with a custom background color',
-                    ),
+                  name: 'Last Name Text Field',
+                  builder: (context) => const LastNameTextFieldWidget(),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'Color picker',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'primary color',
+                  builder: (context) => const PrimaryThemeSelectionWidget(
+                    primaryColorCode: Colors.green,
                   ),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'Check boxes',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Custom check box',
+                  builder: (context) => CustomCheckboxListTile(),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'Radio button',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Custom radio button',
+                  builder: (context) => CustomRadioButton(),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'Dropdown',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'CDrop down widget',
+                  builder: (context) => dropDownWidget(),
                 ),
               ],
             ),
