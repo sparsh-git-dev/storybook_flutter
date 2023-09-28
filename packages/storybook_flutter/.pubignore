@@ -1,8 +1,0 @@
-build/
-test/
-
-example/android/
-example/ios/
-example/macos/
-example/test/
-example/web/
