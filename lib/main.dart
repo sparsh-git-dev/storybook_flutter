@@ -99,7 +99,7 @@ class WidgetbookApp extends StatelessWidget {
               name: 'Dropdown',
               useCases: [
                 WidgetbookUseCase(
-                  name: 'CDrop down widget',
+                  name: 'Drop down widget',
                   builder: (context) => dropDownWidget(),
                 ),
               ],
