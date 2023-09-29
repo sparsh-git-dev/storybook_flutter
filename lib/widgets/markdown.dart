@@ -15,7 +15,7 @@ class _MarkDownState extends State<MarkDown> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: FutureBuilder(
-          future: rootBundle.loadString("README.md"),
+          future: rootBundle.loadString("doc/README.md"),
           builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
             if (snapshot.hasData) {
               return Markdown(
