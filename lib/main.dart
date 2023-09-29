@@ -12,7 +12,9 @@ import 'package:full_example/widgets/elevated_button_widget.dart';
 import 'package:full_example/widgets/elevated_button_widget_cancel.dart';
 import 'package:full_example/widgets/first_name_text_field_widget.dart';
 import 'package:full_example/widgets/last_name_text_field_widget.dart';
+import 'package:full_example/widgets/markdown.dart';
 import 'package:full_example/widgets/radio_button.dart';
+import 'package:full_example/widgets/xml_reader.dart';
 import 'package:widgetbook/widgetbook.dart' hide AlignmentAddon;
 
 import 'components/container.dart';
@@ -37,6 +39,20 @@ class WidgetbookApp extends StatelessWidget {
         AlignmentAddon(),
       ],
       directories: [
+        WidgetbookFolder(
+          name: 'Documents',
+          children: [
+            WidgetbookComponent(
+              name: 'Library',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Readme',
+                  builder: (context) => MarkDown(),
+                ),
+              ],
+            ),
+          ],
+        ),
         WidgetbookFolder(
           name: 'Widgets',
           children: [
