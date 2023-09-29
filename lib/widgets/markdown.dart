@@ -16,6 +16,7 @@ class _MarkDownState extends State<MarkDown> {
       backgroundColor: Colors.white,
       body: Markdown(
         data: data,
+        selectable: true,
         // data: snapshot.data!,
         styleSheet: MarkdownStyleSheet(
           h1: TextStyle(color: Colors.green),
